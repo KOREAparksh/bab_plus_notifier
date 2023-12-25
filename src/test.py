@@ -33,12 +33,10 @@ def getDate(argv) :
 if __name__ == "__main__":  
     date1, date2 = getDate(sys.argv[1])
     
-    # date1 = "08월28일"
-    # date2 = "08월28일"
-    print("@@@@@@@@@@@@@")
-    print(date1)
-    print(date2)
-    print(date2 == '')
+    date1 = "12월26일"
+    date2 = "12월26일"
+    print("date1: " , date1)
+    print("date2: " , date2)
     
     load_dotenv(verbose=True)
     slackToken = os.getenv("TEST_TOKEN")

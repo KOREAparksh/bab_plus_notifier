@@ -90,9 +90,9 @@ def slackErrorMessageFormat(msg):
 
 def sendSlackLaunchMessage(imageUrl, slackToken, channel) :
     client = slack_sdk.WebClient(token = slackToken)
-    os.system("mkdir -p {path}/image")
-    os.system("curl " + imageUrl + " > " + "{path}/image/image.png")
-    image = open("{path}/image/image.png", 'rb')
+    os.system("mkdir -p {}/image".format(path))
+    os.system("curl " + imageUrl + " > " + "{}/image/image.png".format(path))
+    image = open("{}/image/image.png".format(path), 'rb')
     upload = client.files_upload(file=image)
     
     message = "🤩 밥플러스 메뉴 알림!\n"
@@ -100,17 +100,17 @@ def sendSlackLaunchMessage(imageUrl, slackToken, channel) :
     
     client.chat_postMessage(channel = channel, text=message, blocks = slackBlockLaunchFormat())
     
-    os.system("rm -rf " + "{path}/image/image.png")
+    os.system("rm -rf " + "{}/image/image.png".format(path))
     
 def sendSlackDinnerMessage(imageUrl1, imageUrl2, slackToken, channel) :
     client = slack_sdk.WebClient(token = slackToken)
-    os.system("mkdir -p {path}/image")
-    os.system("curl " + imageUrl1 + " > " + "{path}/image/image1.png")
-    os.system("curl " + imageUrl2 + " > " + "{path}/image/image2.png")
+    os.system("mkdir -p {}/image".format(path))
+    os.system("curl " + imageUrl1 + " > " + "{}/image/image1.png".format(path))
+    os.system("curl " + imageUrl2 + " > " + "{}/image/image2.png".format(path))
     
-    image1 = open("{path}/image/image1.png", 'rb')
+    image1 = open("{}/image/image1.png".format(path), 'rb')
     upload1 = client.files_upload(file=image1)
-    image2 = open("{path}/image/image2.png", 'rb')
+    image2 = open("{}/image/image2.png".format(path), 'rb')
     upload2 = client.files_upload_v2(file=image2)
     
     today = dt.datetime.now()
@@ -125,15 +125,15 @@ def sendSlackDinnerMessage(imageUrl1, imageUrl2, slackToken, channel) :
     
     client.chat_postMessage(channel=channel, text=message, blocks=slackMessageDinnerFormat())
     
-    os.system("rm -rf " + "{path}/image/image1.png")
-    os.system("rm -rf " + "{path}/image/image2.png")
+    os.system("rm -rf " + "{}/image/image1.png".format(path))
+    os.system("rm -rf " + "{}/image/image2.png".format(path))
 
 def sendSlackFridayMessage(imageUrl, slackToken, channel) :
     client = slack_sdk.WebClient(token = slackToken)
     
-    os.system("mkdir -p {path}/image")
-    os.system("curl " + imageUrl + " > " + "{path}/image/image.png")
-    image = open("{path}/image/image.png", 'rb')
+    os.system("mkdir -p {}/image".format(path))
+    os.system("curl " + imageUrl + " > " + "{}/image/image.png".format(path))
+    image = open("{}/image/image.png".format(path), 'rb')
     upload = client.files_upload(file=image)
     
     message = "🤩 밥플러스 메뉴 알림!\n"
@@ -141,7 +141,7 @@ def sendSlackFridayMessage(imageUrl, slackToken, channel) :
     
     client.chat_postMessage(channel = channel, text=message, blocks = slackMessageFridayFormat())
     
-    os.system("rm -rf " + "{path}/image/image.png")
+    os.system("rm -rf " + "{}/image/image.png".format(path))
 
 def sendSlackErrorMessage(msg, slackToken, channel) :
     client = slack_sdk.WebClient(token = slackToken)

@@ -42,9 +42,6 @@ def getText(url):
     api_url = os.getenv("NAVER_API_URL")
     secret_key = os.getenv("NAVER_SECRET_KEY")
     
-    print(api_url)
-    print(secret_key)
-    
     request_json = {
         'images': [
             {

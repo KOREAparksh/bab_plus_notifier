@@ -14,19 +14,19 @@ import app
 def getDate(argv) : 
     if sys.argv[1] == '0':
         now = dt.datetime.today()
-        today = now.strftime("%m월%d일")
+        today = now.strftime("%-m월%-d일")
         return today, ""
         
     if sys.argv[1] == '1':
         now = dt.datetime.today()
-        today = now.strftime("%m월%d일")
+        today = now.strftime("%-m월%-d일")
         now = now + dt.timedelta(days=1)
-        tomorrow = now.strftime("%m월%d일")
+        tomorrow = now.strftime("%-m월%-d일")
         return today, tomorrow
     
     if sys.argv[1] == '2':
         now = dt.datetime.today() + dt.timedelta(days=3)
-        today = now.strftime("%m월%d일")
+        today = now.strftime("%-m월%-d일")
         return today, ""
         
 
